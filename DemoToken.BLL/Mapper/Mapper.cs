@@ -1,17 +1,16 @@
-﻿using demoToken.DAL.Data;
-using DemoToken.BLL.Models;
+﻿using DemoToken.BLL.Models;
+using demoToken.DAL.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoToken.BLL.Mapper
+namespace Demo.BLL.Mapper
 {
     public static class Mapper
     {
-        // BllToDal
-        internal static UtilisateurData BllToDal(UtilisateurModel model)
+        internal static UtilisateurData BllToDal(this UtilisateurModel model)
         {
             return new UtilisateurData()
             {
@@ -23,9 +22,12 @@ namespace DemoToken.BLL.Mapper
             };
         }
 
-        // DAlToBll
-        internal static UtilisateurModel DalToBll(UtilisateurData data)
+        internal static UtilisateurModel DalToBll(this UtilisateurData data)
         {
+            if (data is null)
+            {
+                return null;
+            }
             return new UtilisateurModel()
             {
                 Id = data.Id,
