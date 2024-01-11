@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mapper\" />
+    <ProjectReference Include="..\demoToken.DAL\demoToken.DAL.csproj" />
   </ItemGroup>
 
 </Project>

@@ -11,16 +11,21 @@ namespace DemoToken.BLL.Services
 {
     public class UtilisateurService : IUtilisateurService
     {
-        private readonly IUtilisateurRepository
+        private readonly IUtilisateurRepository _utilisateurRepository;
+
+        public UtilisateurService(IUtilisateurRepository utilisateurRepository)
+        {
+            _utilisateurRepository = utilisateurRepository;
+        }
 
         public UtilisateurModel LoginUtilisateur(string email, string password)
         {
-            throw new NotImplementedException();
+            return _utilisateurRepository.LoginUtilisateur(email, password)?.DalToBll();
         }
 
-        public void RegisterUtilisateur(UtilisateurModel utilisateur)
+        public void RegisterUtilisateur(UtilisateurModel model)
         {
-            throw new NotImplementedException();
+            _utilisateurRepository.RegisterUtilisateur(model.BllToDal());
         }
     }
 }
